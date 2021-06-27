@@ -1,13 +1,12 @@
 ---
 title: "Beta regression between vaccine rate ~ accessibility + IMD decile + ethnic composition"
-output: html_notebook
+output: rmarkdown::github_document
 ---
 
 # read data
 ```{r}
 fca<- read.csv("accessibility_imd_ethnic.csv", 
                          sep=",")
-fca
 ```
 
 # Import beta regression library
