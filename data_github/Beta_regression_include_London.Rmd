@@ -1,0 +1,115 @@
+---
+title: "Beta regression between vaccine rate ~ accessibility + IMD decile + ethnic composition"
+output: html_notebook
+---
+
+# read data
+```{r}
+fca<- read.csv("accessibility_imd_ethnic.csv", 
+                         sep=",")
+fca
+```
+
+# Import beta regression library
+```{r}
+library(betareg)
+```
+
+# 2SFCA
+## 10 miles
+```{r}
+scfa2_10 = betareg(vaccination_rate_no_zero ~ X2sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca,  link = "loglog")
+summary(scfa2_10)
+```
+## 15 miles
+```{r}
+scfa2_15 = betareg(vaccination_rate_no_zero ~ X2sfca_15_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(scfa2_15)
+```
+## 20 mmiles
+```{r}
+scfa2_20 = betareg(vaccination_rate_no_zero ~ X2sfca_20_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+
+summary(scfa2_20)
+```
+## 25 miles
+```{r}
+scfa2_25 = betareg(vaccination_rate_no_zero ~ X2sfca_25_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(scfa2_25)
+
+```
+## 30 miles
+```{r}
+scfa2_30 = betareg(vaccination_rate_no_zero ~ X2sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(scfa2_30)
+
+```
+# E2SFCA
+## 10 miles
+```{r}
+E2scfa_10 = betareg(vaccination_rate_no_zero ~ E2sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(E2scfa_10)
+```
+## 15 miles
+```{r}
+E2scfa_15 = betareg(vaccination_rate_no_zero ~ E2sfca_15_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(E2scfa_15)
+```
+## 20 miles
+```{r}
+E2scfa_20 = betareg(vaccination_rate_no_zero ~ E2sfca_20_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(E2scfa_20)
+```
+## 25 miles
+```{r}
+E2scfa_25 = betareg(vaccination_rate_no_zero ~ E2sfca_25_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(E2scfa_25)
+```
+## 30 miles
+```{r}
+E2scfa_30 = betareg(vaccination_rate_no_zero ~ E2sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(E2scfa_30)
+```
+# 3SFCA
+## 10 miles
+```{r}
+scfa3_10 = betareg(vaccination_rate_no_zero ~ X3sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(scfa3_10)
+```
+## 15 miles
+```{r}
+scfa3_15 = betareg(vaccination_rate_no_zero ~ X3sfca_15_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(scfa3_15)
+```
+## 20 miles
+```{r}
+scfa3_20 = betareg(vaccination_rate_no_zero ~ X3sfca_20_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(scfa3_20)
+```
+## 25 miles
+```{r}
+scfa3_25 = betareg(vaccination_rate_no_zero ~ X3sfca_25_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(scfa3_25)
+```
+## 30 miles
+
+```{r}
+scfa3_30 = betareg(vaccination_rate_no_zero ~ X3sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca ,  link = "loglog")
+summary(scfa3_30)
+```
+
