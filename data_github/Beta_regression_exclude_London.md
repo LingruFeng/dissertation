@@ -23,7 +23,7 @@ library(betareg)
 
 ``` r
 scfa2_10 = betareg(vaccination_rate_reshape ~ X2sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca)
+data = fca)
 summary(scfa2_10)
 ```
 
@@ -57,11 +57,17 @@ summary(scfa2_10)
     ## Pseudo R-squared: 0.08129
     ## Number of iterations: 16 (BFGS) + 2 (Fisher scoring)
 
+``` r
+AIC(scfa2_10)
+```
+
+    ## [1] -12226.49
+
 ## 15 miles
 
 ``` r
 scfa2_15 = betareg(vaccination_rate_reshape ~ X2sfca_15_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca)
+data = fca)
 summary(scfa2_15)
 ```
 
@@ -95,11 +101,17 @@ summary(scfa2_15)
     ## Pseudo R-squared: 0.08096
     ## Number of iterations: 16 (BFGS) + 2 (Fisher scoring)
 
+``` r
+AIC(scfa2_15)
+```
+
+    ## [1] -12224.02
+
 ## 20 mmiles
 
 ``` r
 scfa2_20 = betareg(vaccination_rate_reshape ~ X2sfca_20_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca)
+data = fca)
 summary(scfa2_20)
 ```
 
@@ -133,11 +145,17 @@ summary(scfa2_20)
     ## Pseudo R-squared: 0.08076
     ## Number of iterations: 16 (BFGS) + 2 (Fisher scoring)
 
+``` r
+AIC(scfa2_20)
+```
+
+    ## [1] -12221.39
+
 ## 25 miles
 
 ``` r
 scfa2_25 = betareg(vaccination_rate_reshape ~ X2sfca_25_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca)
+data = fca)
 summary(scfa2_25)
 ```
 
@@ -171,11 +189,16 @@ summary(scfa2_25)
     ## Pseudo R-squared: 0.08062
     ## Number of iterations: 16 (BFGS) + 3 (Fisher scoring)
 
+``` r
+AIC(scfa2_25)
+```
+
+    ## [1] -12220.23
+
 ## 30 miles
 
 ``` r
-scfa2_30 = betareg(vaccination_rate_reshape ~ X2sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca)
+scfa2_30 = betareg(vaccination_rate_reshape ~ X2sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other., data = fca)
 summary(scfa2_30)
 ```
 
@@ -209,13 +232,18 @@ summary(scfa2_30)
     ## Pseudo R-squared: 0.0812
     ## Number of iterations: 15 (BFGS) + 3 (Fisher scoring)
 
+``` r
+AIC(scfa2_30)
+```
+
+    ## [1] -12225.54
+
 # E2SFCA
 
 ## 10 miles
 
 ``` r
-E2scfa_10 = betareg(vaccination_rate_reshape ~ E2sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca)
+E2scfa_10 = betareg(vaccination_rate_reshape ~ E2sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other., data = fca)
 summary(E2scfa_10)
 ```
 
@@ -249,11 +277,16 @@ summary(E2scfa_10)
     ## Pseudo R-squared: 0.08094
     ## Number of iterations: 17 (BFGS) + 2 (Fisher scoring)
 
+``` r
+AIC(E2scfa_10)
+```
+
+    ## [1] -12222.77
+
 ## 15 miles
 
 ``` r
-E2scfa_15 = betareg(vaccination_rate_reshape ~ E2sfca_15_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca)
+E2scfa_15 = betareg(vaccination_rate_reshape ~ E2sfca_15_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other., data = fca)
 summary(E2scfa_15)
 ```
 
@@ -287,11 +320,16 @@ summary(E2scfa_15)
     ## Pseudo R-squared: 0.08105
     ## Number of iterations: 16 (BFGS) + 3 (Fisher scoring)
 
+``` r
+AIC(E2scfa_15)
+```
+
+    ## [1] -12224.05
+
 ## 20 miles
 
 ``` r
-E2scfa_20 = betareg(vaccination_rate_reshape ~ E2sfca_20_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca)
+E2scfa_20 = betareg(vaccination_rate_reshape ~ E2sfca_20_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other., data = fca)
 summary(E2scfa_20)
 ```
 
@@ -325,11 +363,16 @@ summary(E2scfa_20)
     ## Pseudo R-squared: 0.08115
     ## Number of iterations: 17 (BFGS) + 2 (Fisher scoring)
 
+``` r
+AIC(E2scfa_20)
+```
+
+    ## [1] -12225.34
+
 ## 25 miles
 
 ``` r
-E2scfa_25 = betareg(vaccination_rate_reshape ~ E2sfca_25_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca)
+E2scfa_25 = betareg(vaccination_rate_reshape ~ E2sfca_25_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other., data = fca)
 summary(E2scfa_25)
 ```
 
@@ -363,11 +406,16 @@ summary(E2scfa_25)
     ## Pseudo R-squared: 0.08108
     ## Number of iterations: 16 (BFGS) + 2 (Fisher scoring)
 
+``` r
+AIC(E2scfa_25)
+```
+
+    ## [1] -12224.91
+
 ## 30 miles
 
 ``` r
-E2scfa_30 = betareg(vaccination_rate_reshape ~ E2sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca)
+E2scfa_30 = betareg(vaccination_rate_reshape ~ E2sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,data = fca)
 summary(E2scfa_30)
 ```
 
@@ -401,13 +449,19 @@ summary(E2scfa_30)
     ## Pseudo R-squared: 0.08088
     ## Number of iterations: 17 (BFGS) + 2 (Fisher scoring)
 
+``` r
+AIC(E2scfa_30)
+```
+
+    ## [1] -12222.87
+
 # 3SFCA
 
 ## 10 miles
 
 ``` r
 scfa3_10 = betareg(vaccination_rate_reshape ~ X3sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca)
+data = fca)
 summary(scfa3_10)
 ```
 
@@ -440,6 +494,12 @@ summary(scfa3_10)
     ## Log-likelihood:  6121 on 8 Df
     ## Pseudo R-squared: 0.08131
     ## Number of iterations: 17 (BFGS) + 2 (Fisher scoring)
+
+``` r
+AIC(scfa3_10)
+```
+
+    ## [1] -12226.09
 
 ## 15 miles
 
@@ -479,6 +539,12 @@ summary(scfa3_15)
     ## Pseudo R-squared: 0.08088
     ## Number of iterations: 16 (BFGS) + 3 (Fisher scoring)
 
+``` r
+AIC(scfa3_15)
+```
+
+    ## [1] -12222.23
+
 ## 20 miles
 
 ``` r
@@ -516,6 +582,12 @@ summary(scfa3_20)
     ## Log-likelihood:  6118 on 8 Df
     ## Pseudo R-squared: 0.0806
     ## Number of iterations: 17 (BFGS) + 2 (Fisher scoring)
+
+``` r
+AIC(scfa3_20)
+```
+
+    ## [1] -12219.94
 
 ## 25 miles
 
@@ -555,6 +627,12 @@ summary(scfa3_25)
     ## Pseudo R-squared: 0.08079
     ## Number of iterations: 15 (BFGS) + 3 (Fisher scoring)
 
+``` r
+AIC(scfa3_25)
+```
+
+    ## [1] -12221.81
+
 ## 30 miles
 
 ``` r
@@ -592,3 +670,9 @@ summary(scfa3_30)
     ## Log-likelihood:  6121 on 8 Df
     ## Pseudo R-squared: 0.0813
     ## Number of iterations: 15 (BFGS) + 3 (Fisher scoring)
+
+``` r
+AIC(scfa3_30)
+```
+
+    ## [1] -12226.38
