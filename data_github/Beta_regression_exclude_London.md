@@ -1,5 +1,5 @@
 Beta regression between vaccine rate \~ accessibility + IMD decile +
-ethnic composition (Exlude London)
+ethnic composition
 ================
 
 # read data
@@ -22,192 +22,191 @@ library(betareg)
 ## 10 miles
 
 ``` r
-scfa2_10 = betareg(vaccination_rate_no_zero ~ X2sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca,  link = "loglog")
+scfa2_10 = betareg(vaccination_rate_reshape ~ X2sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(scfa2_10)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ X2sfca_10_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ X2sfca_10_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.4205  -0.4792  -0.0691   0.4300   7.7441 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3410 -0.6820 -0.1665  0.4721 13.5120 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4435517  0.0202895  71.148  < 2e-16 ***
-    ## X2sfca_10_normalized  0.1365340  0.0496881   2.748  0.00600 ** 
-    ## IMD19.SCORE          -0.0068948  0.0005574 -12.369  < 2e-16 ***
-    ## Mixed.                6.4125290  0.8902530   7.203 5.89e-13 ***
-    ## Asian.               -0.2232939  0.0804372  -2.776  0.00550 ** 
-    ## Black.               -2.3700408  0.3423225  -6.923 4.41e-12 ***
-    ## Other.               -2.6685554  0.9156909  -2.914  0.00357 ** 
+    ## (Intercept)           1.4611557  0.0191768  76.194  < 2e-16 ***
+    ## X2sfca_10_normalized  0.1219277  0.0467660   2.607 0.009129 ** 
+    ## IMD19.SCORE          -0.0106130  0.0005273 -20.128  < 2e-16 ***
+    ## Mixed.                9.2023876  0.8522829  10.797  < 2e-16 ***
+    ## Asian.               -0.2711742  0.0778898  -3.482 0.000499 ***
+    ## Black.               -3.3474968  0.3407736  -9.823  < 2e-16 ***
+    ## Other.               -3.2260428  0.9052032  -3.564 0.000365 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6548     0.2299   55.04   <2e-16 ***
+    ## (phi)  20.2216     0.3704   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4795 on 8 Df
-    ## Pseudo R-squared: 0.07919
-    ## Number of iterations: 14 (BFGS) + 3 (Fisher scoring)
+    ## Log-likelihood:  6121 on 8 Df
+    ## Pseudo R-squared: 0.08129
+    ## Number of iterations: 16 (BFGS) + 2 (Fisher scoring)
 
 ## 15 miles
 
 ``` r
-scfa2_15 = betareg(vaccination_rate_no_zero ~ X2sfca_15_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+scfa2_15 = betareg(vaccination_rate_reshape ~ X2sfca_15_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(scfa2_15)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ X2sfca_15_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ X2sfca_15_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.5052  -0.4786  -0.0756   0.4293   7.4742 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3404 -0.6788 -0.1670  0.4721 13.5672 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4245465  0.0217114  65.613  < 2e-16 ***
-    ## X2sfca_15_normalized  0.3279227  0.0902879   3.632 0.000281 ***
-    ## IMD19.SCORE          -0.0067540  0.0005607 -12.046  < 2e-16 ***
-    ## Mixed.                6.2817239  0.8892951   7.064 1.62e-12 ***
-    ## Asian.               -0.2312543  0.0804847  -2.873 0.004062 ** 
-    ## Black.               -2.3830606  0.3420643  -6.967 3.24e-12 ***
-    ## Other.               -2.5872962  0.9147228  -2.829 0.004677 ** 
+    ## (Intercept)           1.4626652  0.0205053  71.331  < 2e-16 ***
+    ## X2sfca_15_normalized  0.1740423  0.0842902   2.065 0.038942 *  
+    ## IMD19.SCORE          -0.0106212  0.0005305 -20.020  < 2e-16 ***
+    ## Mixed.                9.2891535  0.8529563  10.891  < 2e-16 ***
+    ## Asian.               -0.2733605  0.0779846  -3.505 0.000456 ***
+    ## Black.               -3.3536047  0.3409374  -9.836  < 2e-16 ***
+    ## Other.               -3.1694737  0.9055203  -3.500 0.000465 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6669     0.2302   55.04   <2e-16 ***
+    ## (phi)  20.2131     0.3703   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4798 on 8 Df
-    ## Pseudo R-squared: 0.07924
-    ## Number of iterations: 14 (BFGS) + 2 (Fisher scoring)
+    ## Log-likelihood:  6120 on 8 Df
+    ## Pseudo R-squared: 0.08096
+    ## Number of iterations: 16 (BFGS) + 2 (Fisher scoring)
 
 ## 20 mmiles
 
 ``` r
-scfa2_20 = betareg(vaccination_rate_no_zero ~ X2sfca_20_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
-
+scfa2_20 = betareg(vaccination_rate_reshape ~ X2sfca_20_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(scfa2_20)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ X2sfca_20_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ X2sfca_20_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.4602  -0.4772  -0.0751   0.4290   7.6098 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3391 -0.6782 -0.1683  0.4719 13.5238 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4468055  0.0202546  71.431  < 2e-16 ***
-    ## X2sfca_20_normalized  0.1971983  0.0792357   2.489  0.01282 *  
-    ## IMD19.SCORE          -0.0068404  0.0005627 -12.156  < 2e-16 ***
-    ## Mixed.                6.4238379  0.8918219   7.203 5.89e-13 ***
-    ## Asian.               -0.2262454  0.0805518  -2.809  0.00497 ** 
-    ## Black.               -2.3528328  0.3421965  -6.876 6.17e-12 ***
-    ## Other.               -2.5900555  0.9169527  -2.825  0.00473 ** 
+    ## (Intercept)           1.4768328  0.0190779  77.410  < 2e-16 ***
+    ## X2sfca_20_normalized  0.0886151  0.0734724   1.206 0.227779    
+    ## IMD19.SCORE          -0.0106860  0.0005324 -20.071  < 2e-16 ***
+    ## Mixed.                9.3916979  0.8544363  10.992  < 2e-16 ***
+    ## Asian.               -0.2702379  0.0779942  -3.465 0.000531 ***
+    ## Black.               -3.3350415  0.3408125  -9.786  < 2e-16 ***
+    ## Other.               -3.1727885  0.9060911  -3.502 0.000462 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6521     0.2299   55.04   <2e-16 ***
+    ## (phi)  20.2033     0.3701   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4794 on 8 Df
-    ## Pseudo R-squared: 0.07873
-    ## Number of iterations: 15 (BFGS) + 2 (Fisher scoring)
+    ## Log-likelihood:  6119 on 8 Df
+    ## Pseudo R-squared: 0.08076
+    ## Number of iterations: 16 (BFGS) + 2 (Fisher scoring)
 
 ## 25 miles
 
 ``` r
-scfa2_25 = betareg(vaccination_rate_no_zero ~ X2sfca_25_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+scfa2_25 = betareg(vaccination_rate_reshape ~ X2sfca_25_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(scfa2_25)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ X2sfca_25_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ X2sfca_25_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.4358  -0.4792  -0.0749   0.4292   7.5875 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3387 -0.6790 -0.1628  0.4714 13.4595 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4596119  0.0193119  75.581  < 2e-16 ***
-    ## X2sfca_25_normalized  0.0974498  0.0595874   1.635  0.10196    
-    ## IMD19.SCORE          -0.0069161  0.0005653 -12.235  < 2e-16 ***
-    ## Mixed.                6.6052059  0.8886858   7.433 1.07e-13 ***
-    ## Asian.               -0.2243205  0.0806113  -2.783  0.00539 ** 
-    ## Black.               -2.3670434  0.3426300  -6.908 4.90e-12 ***
-    ## Other.               -2.6077304  0.9179070  -2.841  0.00450 ** 
+    ## (Intercept)           1.4948799  0.0182136  82.075  < 2e-16 ***
+    ## X2sfca_25_normalized -0.0296375  0.0551667  -0.537 0.591105    
+    ## IMD19.SCORE          -0.0108725  0.0005348 -20.330  < 2e-16 ***
+    ## Mixed.                9.6274404  0.8513811  11.308  < 2e-16 ***
+    ## Asian.               -0.2645913  0.0780459  -3.390 0.000698 ***
+    ## Black.               -3.3259929  0.3411508  -9.749  < 2e-16 ***
+    ## Other.               -3.2093854  0.9066529  -3.540 0.000400 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6439     0.2297   55.04   <2e-16 ***
+    ## (phi)    20.20       0.37   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4793 on 8 Df
-    ## Pseudo R-squared: 0.07812
-    ## Number of iterations: 14 (BFGS) + 2 (Fisher scoring)
+    ## Log-likelihood:  6118 on 8 Df
+    ## Pseudo R-squared: 0.08062
+    ## Number of iterations: 16 (BFGS) + 3 (Fisher scoring)
 
 ## 30 miles
 
 ``` r
-scfa2_30 = betareg(vaccination_rate_no_zero ~ X2sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+scfa2_30 = betareg(vaccination_rate_reshape ~ X2sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(scfa2_30)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ X2sfca_30_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ X2sfca_30_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.3977  -0.4785  -0.0722   0.4287   7.5758 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3414 -0.6755 -0.1636  0.4688 13.4015 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4741844  0.0190829  77.252  < 2e-16 ***
-    ## X2sfca_30_normalized  0.0083003  0.0474530   0.175  0.86114    
-    ## IMD19.SCORE          -0.0070952  0.0005689 -12.472  < 2e-16 ***
-    ## Mixed.                6.7997316  0.8895569   7.644 2.11e-14 ***
-    ## Asian.               -0.2183335  0.0806798  -2.706  0.00681 ** 
-    ## Black.               -2.3565013  0.3429803  -6.871 6.39e-12 ***
-    ## Other.               -2.6452061  0.9189686  -2.878  0.00400 ** 
+    ## (Intercept)           1.5110718  0.0180130  83.888  < 2e-16 ***
+    ## X2sfca_30_normalized -0.1060280  0.0441833  -2.400 0.016407 *  
+    ## IMD19.SCORE          -0.0111190  0.0005381 -20.665  < 2e-16 ***
+    ## Mixed.                9.8292984  0.8514142  11.545  < 2e-16 ***
+    ## Asian.               -0.2574522  0.0780487  -3.299 0.000972 ***
+    ## Black.               -3.3014150  0.3410222  -9.681  < 2e-16 ***
+    ## Other.               -3.2544783  0.9067858  -3.589 0.000332 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6382     0.2296   55.04   <2e-16 ***
+    ## (phi)  20.2178     0.3703   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4791 on 8 Df
-    ## Pseudo R-squared: 0.07798
+    ## Log-likelihood:  6121 on 8 Df
+    ## Pseudo R-squared: 0.0812
     ## Number of iterations: 15 (BFGS) + 3 (Fisher scoring)
 
 # E2SFCA
@@ -215,381 +214,381 @@ summary(scfa2_30)
 ## 10 miles
 
 ``` r
-E2scfa_10 = betareg(vaccination_rate_no_zero ~ E2sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+E2scfa_10 = betareg(vaccination_rate_reshape ~ E2sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(E2scfa_10)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ E2sfca_10_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ E2sfca_10_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.3945  -0.4770  -0.0736   0.4315   7.5979 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3394 -0.6829 -0.1630  0.4701 13.4866 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4714390  0.0182455  80.647  < 2e-16 ***
-    ## E2sfca_10_normalized  0.0343903  0.0598319   0.575  0.56544    
-    ## IMD19.SCORE          -0.0070968  0.0005526 -12.843  < 2e-16 ***
-    ## Mixed.                6.7341271  0.8935673   7.536 4.84e-14 ***
-    ## Asian.               -0.2190703  0.0805661  -2.719  0.00655 ** 
-    ## Black.               -2.3582253  0.3427372  -6.881 5.96e-12 ***
-    ## Other.               -2.6520107  0.9179932  -2.889  0.00387 ** 
+    ## (Intercept)           1.4776871  0.0172083  85.871  < 2e-16 ***
+    ## E2sfca_10_normalized  0.0958844  0.0565348   1.696 0.089881 .  
+    ## IMD19.SCORE          -0.0107460  0.0005228 -20.554  < 2e-16 ***
+    ## Mixed.                9.3217111  0.8540443  10.915  < 2e-16 ***
+    ## Asian.               -0.2702359  0.0779276  -3.468 0.000525 ***
+    ## Black.               -3.3406425  0.3408212  -9.802  < 2e-16 ***
+    ## Other.               -3.2170111  0.9056513  -3.552 0.000382 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6389     0.2296   55.04   <2e-16 ***
+    ## (phi)  20.2080     0.3702   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4791 on 8 Df
-    ## Pseudo R-squared: 0.07817
-    ## Number of iterations: 14 (BFGS) + 2 (Fisher scoring)
+    ## Log-likelihood:  6119 on 8 Df
+    ## Pseudo R-squared: 0.08094
+    ## Number of iterations: 17 (BFGS) + 2 (Fisher scoring)
 
 ## 15 miles
 
 ``` r
-E2scfa_15 = betareg(vaccination_rate_no_zero ~ E2sfca_15_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+E2scfa_15 = betareg(vaccination_rate_reshape ~ E2sfca_15_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(E2scfa_15)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ E2sfca_15_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ E2sfca_15_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.4109  -0.4779  -0.0711   0.4297   7.6516 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3401 -0.6809 -0.1657  0.4696 13.5034 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                       Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.454019   0.019812  73.390  < 2e-16 ***
-    ## E2sfca_15_normalized  0.100240   0.050000   2.005  0.04498 *  
-    ## IMD19.SCORE          -0.006993   0.000555 -12.600  < 2e-16 ***
-    ## Mixed.                6.452091   0.897153   7.192 6.40e-13 ***
-    ## Asian.               -0.224394   0.080502  -2.787  0.00531 ** 
-    ## Black.               -2.364492   0.342558  -6.902 5.11e-12 ***
-    ## Other.               -2.651728   0.915924  -2.895  0.00379 ** 
+    ## (Intercept)           1.468823   0.018710  78.503  < 2e-16 ***
+    ## E2sfca_15_normalized  0.097273   0.047090   2.066 0.038857 *  
+    ## IMD19.SCORE          -0.010689   0.000525 -20.361  < 2e-16 ***
+    ## Mixed.                9.206752   0.858355  10.726  < 2e-16 ***
+    ## Asian.               -0.272640   0.077943  -3.498 0.000469 ***
+    ## Black.               -3.341721   0.340811  -9.805  < 2e-16 ***
+    ## Other.               -3.213488   0.905343  -3.549 0.000386 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6470     0.2298   55.04   <2e-16 ***
+    ## (phi)  20.2127     0.3703   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4793 on 8 Df
-    ## Pseudo R-squared: 0.0787
-    ## Number of iterations: 14 (BFGS) + 3 (Fisher scoring)
+    ## Log-likelihood:  6120 on 8 Df
+    ## Pseudo R-squared: 0.08105
+    ## Number of iterations: 16 (BFGS) + 3 (Fisher scoring)
 
 ## 20 miles
 
 ``` r
-E2scfa_20 = betareg(vaccination_rate_no_zero ~ E2sfca_20_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+E2scfa_20 = betareg(vaccination_rate_reshape ~ E2sfca_20_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(E2scfa_20)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ E2sfca_20_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ E2sfca_20_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.4568  -0.4814  -0.0718   0.4267   7.6494 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3407 -0.6803 -0.1686  0.4723 13.5450 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4346820  0.0211071  67.971  < 2e-16 ***
-    ## E2sfca_20_normalized  0.2041237  0.0650271   3.139  0.00169 ** 
-    ## IMD19.SCORE          -0.0068642  0.0005576 -12.311  < 2e-16 ***
-    ## Mixed.                6.1926674  0.8983292   6.894 5.44e-12 ***
-    ## Asian.               -0.2305797  0.0804605  -2.866  0.00416 ** 
-    ## Black.               -2.3682834  0.3422723  -6.919 4.54e-12 ***
-    ## Other.               -2.6370205  0.9140549  -2.885  0.00391 ** 
+    ## (Intercept)           1.4607022  0.0199526  73.209  < 2e-16 ***
+    ## E2sfca_20_normalized  0.1452916  0.0611250   2.377 0.017456 *  
+    ## IMD19.SCORE          -0.0106329  0.0005274 -20.160  < 2e-16 ***
+    ## Mixed.                9.1205811  0.8607139  10.597  < 2e-16 ***
+    ## Asian.               -0.2751340  0.0779655  -3.529 0.000417 ***
+    ## Black.               -3.3443777  0.3407954  -9.813  < 2e-16 ***
+    ## Other.               -3.2020659  0.9050706  -3.538 0.000403 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)    12.66       0.23   55.04   <2e-16 ***
+    ## (phi)  20.2176     0.3703   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4796 on 8 Df
-    ## Pseudo R-squared: 0.07927
-    ## Number of iterations: 14 (BFGS) + 2 (Fisher scoring)
+    ## Log-likelihood:  6121 on 8 Df
+    ## Pseudo R-squared: 0.08115
+    ## Number of iterations: 17 (BFGS) + 2 (Fisher scoring)
 
 ## 25 miles
 
 ``` r
-E2scfa_25 = betareg(vaccination_rate_no_zero ~ E2sfca_25_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+E2scfa_25 = betareg(vaccination_rate_reshape ~ E2sfca_25_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(E2scfa_25)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ E2sfca_25_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ E2sfca_25_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.4957  -0.4802  -0.0749   0.4280   7.6251 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3406 -0.6796 -0.1678  0.4715 13.5688 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4253029  0.0216892  65.715  < 2e-16 ***
-    ## E2sfca_25_normalized  0.2799782  0.0776748   3.604 0.000313 ***
-    ## IMD19.SCORE          -0.0067735  0.0005601 -12.092  < 2e-16 ***
-    ## Mixed.                6.0845104  0.8980813   6.775 1.24e-11 ***
-    ## Asian.               -0.2342539  0.0804673  -2.911 0.003601 ** 
-    ## Black.               -2.3678381  0.3420644  -6.922 4.45e-12 ***
-    ## Other.               -2.6149932  0.9135733  -2.862 0.004205 ** 
+    ## (Intercept)           1.4600890  0.0204819  71.287  < 2e-16 ***
+    ## E2sfca_25_normalized  0.1654356  0.0726443   2.277 0.022766 *  
+    ## IMD19.SCORE          -0.0106098  0.0005299 -20.023  < 2e-16 ***
+    ## Mixed.                9.1352425  0.8612203  10.607  < 2e-16 ***
+    ## Asian.               -0.2757052  0.0779955  -3.535 0.000408 ***
+    ## Black.               -3.3448213  0.3408230  -9.814  < 2e-16 ***
+    ## Other.               -3.1880201  0.9051358  -3.522 0.000428 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6666     0.2301   55.04   <2e-16 ***
+    ## (phi)  20.2162     0.3703   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4798 on 8 Df
-    ## Pseudo R-squared: 0.07943
-    ## Number of iterations: 14 (BFGS) + 2 (Fisher scoring)
+    ## Log-likelihood:  6120 on 8 Df
+    ## Pseudo R-squared: 0.08108
+    ## Number of iterations: 16 (BFGS) + 2 (Fisher scoring)
 
 ## 30 miles
 
 ``` r
-E2scfa_30 = betareg(vaccination_rate_no_zero ~ E2sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+E2scfa_30 = betareg(vaccination_rate_reshape ~ E2sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(E2scfa_30)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ E2sfca_30_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ E2sfca_30_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.5043  -0.4782  -0.0733   0.4297   7.6151 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3400 -0.6778 -0.1707  0.4701 13.5559 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4274333  0.0216384  65.968  < 2e-16 ***
-    ## E2sfca_30_normalized  0.2849220  0.0819369   3.477 0.000506 ***
-    ## IMD19.SCORE          -0.0067426  0.0005626 -11.986  < 2e-16 ***
-    ## Mixed.                6.1307175  0.8968922   6.836 8.17e-12 ***
-    ## Asian.               -0.2343634  0.0805051  -2.911 0.003601 ** 
-    ## Black.               -2.3686044  0.3420481  -6.925 4.37e-12 ***
-    ## Other.               -2.5978643  0.9142884  -2.841 0.004492 ** 
+    ## (Intercept)           1.4673850  0.0203958  71.945  < 2e-16 ***
+    ## E2sfca_30_normalized  0.1325738  0.0761540   1.741 0.081707 .  
+    ## IMD19.SCORE          -0.0106372  0.0005322 -19.987  < 2e-16 ***
+    ## Mixed.                9.2493906  0.8602571  10.752  < 2e-16 ***
+    ## Asian.               -0.2738398  0.0780281  -3.510 0.000449 ***
+    ## Black.               -3.3439597  0.3409201  -9.809  < 2e-16 ***
+    ## Other.               -3.1803486  0.9055310  -3.512 0.000445 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6647     0.2301   55.04   <2e-16 ***
+    ## (phi)  20.2088     0.3702   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4797 on 8 Df
-    ## Pseudo R-squared: 0.07914
-    ## Number of iterations: 14 (BFGS) + 2 (Fisher scoring)
+    ## Log-likelihood:  6119 on 8 Df
+    ## Pseudo R-squared: 0.08088
+    ## Number of iterations: 17 (BFGS) + 2 (Fisher scoring)
 
 # 3SFCA
 
 ## 10 miles
 
 ``` r
-scfa3_10 = betareg(vaccination_rate_no_zero ~ X3sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+scfa3_10 = betareg(vaccination_rate_reshape ~ X3sfca_10_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(scfa3_10)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ X3sfca_10_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ X3sfca_10_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.4088  -0.4814  -0.0734   0.4300   7.6277 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3407 -0.6813 -0.1683  0.4714 13.5256 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4656742  0.0183133  80.034  < 2e-16 ***
-    ## X3sfca_10_normalized  0.0774347  0.0597609   1.296  0.19506    
-    ## IMD19.SCORE          -0.0070429  0.0005543 -12.707  < 2e-16 ***
-    ## Mixed.                6.6381884  0.8910716   7.450 9.36e-14 ***
-    ## Asian.               -0.2189661  0.0804971  -2.720  0.00652 ** 
-    ## Black.               -2.3576396  0.3425564  -6.882 5.88e-12 ***
-    ## Other.               -2.6345979  0.9174721  -2.872  0.00408 ** 
+    ## (Intercept)           1.4714603  0.0172727  85.190  < 2e-16 ***
+    ## X3sfca_10_normalized  0.1403528  0.0564242   2.487 0.012866 *  
+    ## IMD19.SCORE          -0.0106708  0.0005243 -20.353  < 2e-16 ***
+    ## Mixed.                9.2405789  0.8518155  10.848  < 2e-16 ***
+    ## Asian.               -0.2685933  0.0778698  -3.449 0.000562 ***
+    ## Black.               -3.3372277  0.3406379  -9.797  < 2e-16 ***
+    ## Other.               -3.1891350  0.9052142  -3.523 0.000427 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6419     0.2297   55.04   <2e-16 ***
+    ## (phi)  20.2199     0.3704   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4792 on 8 Df
-    ## Pseudo R-squared: 0.07853
-    ## Number of iterations: 14 (BFGS) + 3 (Fisher scoring)
+    ## Log-likelihood:  6121 on 8 Df
+    ## Pseudo R-squared: 0.08131
+    ## Number of iterations: 17 (BFGS) + 2 (Fisher scoring)
 
 ## 15 miles
 
 ``` r
-scfa3_15 = betareg(vaccination_rate_no_zero ~ X3sfca_15_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+scfa3_15 = betareg(vaccination_rate_reshape ~ X3sfca_15_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(scfa3_15)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ X3sfca_15_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ X3sfca_15_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.4061  -0.4771  -0.0747   0.4302   7.6179 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3394 -0.6807 -0.1674  0.4711 13.5031 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4636184  0.0195043  75.041  < 2e-16 ***
-    ## X3sfca_15_normalized  0.0640968  0.0540470   1.186  0.23564    
-    ## IMD19.SCORE          -0.0070048  0.0005595 -12.520  < 2e-16 ***
-    ## Mixed.                6.6311082  0.8937758   7.419 1.18e-13 ***
-    ## Asian.               -0.2196844  0.0805256  -2.728  0.00637 ** 
-    ## Black.               -2.3566418  0.3425727  -6.879 6.02e-12 ***
-    ## Other.               -2.6280472  0.9177336  -2.864  0.00419 ** 
+    ## (Intercept)           1.4750403  0.0184122  80.112  < 2e-16 ***
+    ## X3sfca_15_normalized  0.0780079  0.0509433   1.531 0.125703    
+    ## IMD19.SCORE          -0.0106722  0.0005293 -20.163  < 2e-16 ***
+    ## Mixed.                9.3388577  0.8547997  10.925  < 2e-16 ***
+    ## Asian.               -0.2688373  0.0779267  -3.450 0.000561 ***
+    ## Black.               -3.3356708  0.3407895  -9.788  < 2e-16 ***
+    ## Other.               -3.1798706  0.9058075  -3.511 0.000447 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6412     0.2297   55.04   <2e-16 ***
+    ## (phi)  20.2061     0.3701   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4792 on 8 Df
-    ## Pseudo R-squared: 0.07835
-    ## Number of iterations: 14 (BFGS) + 3 (Fisher scoring)
+    ## Log-likelihood:  6119 on 8 Df
+    ## Pseudo R-squared: 0.08088
+    ## Number of iterations: 16 (BFGS) + 3 (Fisher scoring)
 
 ## 20 miles
 
 ``` r
-scfa3_20 = betareg(vaccination_rate_no_zero ~ X3sfca_20_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+scfa3_20 = betareg(vaccination_rate_reshape ~ X3sfca_20_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(scfa3_20)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ X3sfca_20_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ X3sfca_20_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.4074  -0.4778  -0.0745   0.4287   7.5947 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3390 -0.6789 -0.1633  0.4708 13.4774 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4637866  0.0201968  72.476  < 2e-16 ***
-    ## X3sfca_20_normalized  0.0625957  0.0600871   1.042  0.29753    
-    ## IMD19.SCORE          -0.0069928  0.0005643 -12.393  < 2e-16 ***
-    ## Mixed.                6.6487442  0.8948019   7.430 1.08e-13 ***
-    ## Asian.               -0.2200619  0.0805576  -2.732  0.00630 ** 
-    ## Black.               -2.3570819  0.3425991  -6.880 5.99e-12 ***
-    ## Other.               -2.6258048  0.9180836  -2.860  0.00424 ** 
+    ## (Intercept)           1.4902708  0.0190742  78.130  < 2e-16 ***
+    ## X3sfca_20_normalized -0.0018257  0.0563976  -0.032 0.974175    
+    ## IMD19.SCORE          -0.0108145  0.0005339 -20.256  < 2e-16 ***
+    ## Mixed.                9.5697864  0.8565787  11.172  < 2e-16 ***
+    ## Asian.               -0.2664906  0.0779792  -3.417 0.000632 ***
+    ## Black.               -3.3320466  0.3408801  -9.775  < 2e-16 ***
+    ## Other.               -3.1979222  0.9065145  -3.528 0.000419 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6405     0.2297   55.04   <2e-16 ***
+    ## (phi)    20.20       0.37   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4792 on 8 Df
-    ## Pseudo R-squared: 0.0781
-    ## Number of iterations: 15 (BFGS) + 3 (Fisher scoring)
+    ## Log-likelihood:  6118 on 8 Df
+    ## Pseudo R-squared: 0.0806
+    ## Number of iterations: 17 (BFGS) + 2 (Fisher scoring)
 
 ## 25 miles
 
 ``` r
-scfa3_25 = betareg(vaccination_rate_no_zero ~ X3sfca_25_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+scfa3_25 = betareg(vaccination_rate_reshape ~ X3sfca_25_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(scfa3_25)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ X3sfca_25_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ X3sfca_25_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.4049  -0.4766  -0.0741   0.4281   7.5786 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3401 -0.6764 -0.1630  0.4717 13.4450 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4676080  0.0206327  71.130  < 2e-16 ***
-    ## X3sfca_25_normalized  0.0422621  0.0631899   0.669  0.50362    
-    ## IMD19.SCORE          -0.0070279  0.0005679 -12.375  < 2e-16 ***
-    ## Mixed.                6.7099144  0.8955440   7.493 6.75e-14 ***
-    ## Asian.               -0.2194259  0.0805923  -2.723  0.00648 ** 
-    ## Black.               -2.3568876  0.3426721  -6.878 6.07e-12 ***
-    ## Other.               -2.6311797  0.9186191  -2.864  0.00418 ** 
+    ## (Intercept)           1.5058708  0.0194751  77.323  < 2e-16 ***
+    ## X3sfca_25_normalized -0.0820087  0.0590904  -1.388 0.165183    
+    ## IMD19.SCORE          -0.0109863  0.0005372 -20.450  < 2e-16 ***
+    ## Mixed.                9.7771309  0.8575690  11.401  < 2e-16 ***
+    ## Asian.               -0.2632073  0.0779945  -3.375 0.000739 ***
+    ## Black.               -3.3250884  0.3408543  -9.755  < 2e-16 ***
+    ## Other.               -3.2293469  0.9068986  -3.561 0.000370 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6391     0.2296   55.04   <2e-16 ***
+    ## (phi)  20.2046     0.3701   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4791 on 8 Df
-    ## Pseudo R-squared: 0.07794
-    ## Number of iterations: 14 (BFGS) + 2 (Fisher scoring)
+    ## Log-likelihood:  6119 on 8 Df
+    ## Pseudo R-squared: 0.08079
+    ## Number of iterations: 15 (BFGS) + 3 (Fisher scoring)
 
 ## 30 miles
 
 ``` r
-scfa3_30 = betareg(vaccination_rate_no_zero ~ X3sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
-                data = fca ,  link = "loglog")
+scfa3_30 = betareg(vaccination_rate_reshape ~ X3sfca_30_normalized + IMD19.SCORE + Mixed. + Asian. + Black. + Other.,
+                data = fca)
 summary(scfa3_30)
 ```
 
     ## 
     ## Call:
-    ## betareg(formula = vaccination_rate_no_zero ~ X3sfca_30_normalized + IMD19.SCORE + 
-    ##     Mixed. + Asian. + Black. + Other., data = fca, link = "loglog")
+    ## betareg(formula = vaccination_rate_reshape ~ X3sfca_30_normalized + IMD19.SCORE + 
+    ##     Mixed. + Asian. + Black. + Other., data = fca)
     ## 
     ## Standardized weighted residuals 2:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -14.3952  -0.4774  -0.0723   0.4284   7.5736 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -5.3421 -0.6760 -0.1602  0.4708 13.4071 
     ## 
-    ## Coefficients (mean model with loglog link):
+    ## Coefficients (mean model with logit link):
     ##                        Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)           1.4747334  0.0208864  70.607  < 2e-16 ***
-    ## X3sfca_30_normalized  0.0054891  0.0635020   0.086  0.93112    
-    ## IMD19.SCORE          -0.0071068  0.0005706 -12.454  < 2e-16 ***
-    ## Mixed.                6.8071876  0.8966196   7.592 3.15e-14 ***
-    ## Asian.               -0.2178593  0.0806215  -2.702  0.00689 ** 
-    ## Black.               -2.3553109  0.3427799  -6.871 6.37e-12 ***
-    ## Other.               -2.6469484  0.9192477  -2.879  0.00398 ** 
+    ## (Intercept)           1.5203825  0.0197008  77.174  < 2e-16 ***
+    ## X3sfca_30_normalized -0.1525109  0.0592652  -2.573 0.010071 *  
+    ## IMD19.SCORE          -0.0111598  0.0005396 -20.682  < 2e-16 ***
+    ## Mixed.                9.9615737  0.8584177  11.605  < 2e-16 ***
+    ## Asian.               -0.2597906  0.0779825  -3.331 0.000864 ***
+    ## Black.               -3.3166782  0.3407573  -9.733  < 2e-16 ***
+    ## Other.               -3.2708052  0.9070575  -3.606 0.000311 ***
     ## 
     ## Phi coefficients (precision model with identity link):
     ##       Estimate Std. Error z value Pr(>|z|)    
-    ## (phi)  12.6382     0.2296   55.04   <2e-16 ***
+    ## (phi)  20.2207     0.3704   54.59   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
     ## 
     ## Type of estimator: ML (maximum likelihood)
-    ## Log-likelihood:  4791 on 8 Df
-    ## Pseudo R-squared: 0.078
+    ## Log-likelihood:  6121 on 8 Df
+    ## Pseudo R-squared: 0.0813
     ## Number of iterations: 15 (BFGS) + 3 (Fisher scoring)
