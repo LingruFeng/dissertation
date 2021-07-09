@@ -35,9 +35,13 @@ Folder contains England base map and vaccination site geodata generated from dat
 
 IMD_ethnic_mapplot.ipynb plot the map of ethnic component and IMD decile in England.
 
+Distance_decay_function_plot.ipynb plot the cutoff distance decay function for 2SFCA and Gaussian distance decay function for E2SFCA and 3SFCA.
+
+Research_area_plot.ipynb plot the map of research area.
+
 MSOA_test_60_69_OSRM_exclude.ipynb used 2SFCA/E2SFCA/3SFCA method, excluding London, setting 10/15/20/25/30 miles as threshold, calculated the accessibility of vaccination service and calculated the correlation coddficients between accessibility and vaccination rate, and generated the maps. Also generate the file accessibility_imd_ethnic_exclude.csv for further regression in R.
 
-MSOA_test_60_69_OSRM_include.ipynb used 2SFCA/E2SFCA/3SFCA method, including London, setting 10/15/20/25/30 miles as threshold, calculated the accessibility of vaccination service and calculated the correlation coddficients between accessibility and vaccination rate, and generated the maps.
+MSOA_test_60_69_OSRM_include.ipynb used 2SFCA/E2SFCA/3SFCA method, including London, setting 10/15/20/25/30 miles as threshold, calculated the accessibility of vaccination service and calculated the correlation coddficients between accessibility and vaccination rate, and generated the maps. Also generated the scatter plot map of vaccination site and map of MSOA that are lack of vaccination site within 10 miles driving distance.
 
 Beta_regression_exclude_London_imdint_factor.md build a Beta regression: vaccination rate ~ IMD decile + ethnic component + accessibility.
 
