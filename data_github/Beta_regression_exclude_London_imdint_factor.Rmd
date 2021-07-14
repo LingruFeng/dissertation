@@ -18,6 +18,10 @@ fca$MSOADECILE <- factor(fca$MSOADECILE, levels = c(1,2,3,4,5,6,7,8,9,10))
 library(betareg)
 ```
 
+```{r}
+head(fca)
+```
+
 # 2SFCA
 ## 10 miles
 ```{r}
