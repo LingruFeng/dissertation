@@ -9,7 +9,8 @@ fca<- read.csv("accessibility_imd_ethnic_exclude.csv", sep=",")
 
 ```
 ```{r}
-fca$MSOADECILE <- as.factor(fca$MSOADECILE)
+#fca$MSOADECILE <- as.factor(fca$MSOADECILE)
+fca$MSOADECILE <- factor(fca$MSOADECILE, levels = c(1,2,3,4,5,6,7,8,9,10))
 ```
 
 # Import beta regression library
